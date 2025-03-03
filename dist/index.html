@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>猜數字遊戲</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜數字遊戲</h1>
+    <p>請在1到100之間猜一個數字：</p>
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">猜</button>
+    <p id="message"></p>
+
+    <script>
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        function checkGuess() {
+            let guess = document.getElementById("guess").value;
+            attempts++;
+            if (guess == secretNumber) {
+                document.getElementById("message").innerHTML = "恭喜你，猜中了！你用了 " + attempts + " 次機會。";
+            } else if (guess < secretNumber) {
+                document.getElementById("message").innerHTML = "猜的數字太小了，再試一次！";
+            } else {
+                document.getElementById("message").innerHTML = "猜的數字太大了，再試一次！";
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
